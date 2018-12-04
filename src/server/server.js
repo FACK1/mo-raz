@@ -1,7 +1,8 @@
 const http = require('http');
 const router = require('./router.js');
+require('dotenv').config();
 
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 
 const server = http.createServer(router);
 server.listen(PORT, () => {
