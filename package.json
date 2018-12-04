@@ -1,0 +1,30 @@
+{
+  "name": "mo-raz",
+  "version": "1.0.0",
+  "description": "Site for FACK1 students to see and post reviews",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACK1/mo-raz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACK1/mo-raz/issues"
+  },
+  "homepage": "https://github.com/FACK1/mo-raz#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.7",
+    "supertest": "^3.3.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  },
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "pg": "^7.7.1"
+  }
+}
