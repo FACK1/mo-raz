@@ -6,6 +6,8 @@ const router = (request , response) => {
     handler.homeHandler(request,response);
   }else if (request.url.split('.')[1]){
     handler.publicHandler(request,response);
+  }else if (request.url === '/courses') {
+    handler.getCoursesHandler(request,response);
   }else{
     handler.errorHandler(request,response);
   }
