@@ -1,20 +1,17 @@
-const db_connection = require('../database/db_connection');
-
-
-
+const dbConnection = require('../database/db_connection');
 
 const getCourses = (cb) => {
   const getCoursesQuery = 'SELECT * FROM courses';
-  let courses = db_connection.query(getCoursesQuery, (error, result) =>{
-    if(error){
+  dbConnection.query(getCoursesQuery, (error, result) => {
+    if (error) {
       cb(true);
-    }else{
+    } else {
       cb(null, result.rows);
     }
   });
-}
+};
 
 
-module.exports= {
-  getCourses
+module.exports = {
+  getCourses,
 };
