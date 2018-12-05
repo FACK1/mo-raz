@@ -7,7 +7,8 @@
     "test": "tape src/test/*.js || tap-spec",
     "dev": "nodemon ./src/server/server.js",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
-    "eslint:fix": "./node_modules/.bin/eslint --fix src/**/*.js"
+    "eslint:fix": "./node_modules/.bin/eslint --fix src/**/*.js",
+    "start": "node src/server/server.js"
     },
   "repository": {
     "type": "git",
