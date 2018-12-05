@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// Home page Handler
 
 const homeHandler = (request, response) => {
 	const htmlPath = path.join(__dirname, '..','..', 'public', 'index.html');
@@ -15,7 +14,6 @@ const homeHandler = (request, response) => {
 	});
 };
 
-//Public Handler
 
 const publicHandler = (request, response) => {
 	const extention = request.url.split('.')[1];
@@ -30,8 +28,7 @@ const publicHandler = (request, response) => {
 	};
 
 	if (ContentTypeMapping[extention] === undefined) {
-		errorHandler(request, response);
-		return;
+		return errorHandler(request, response);
 	}
 	const filePath = path.join(__dirname, '..', '..', 'public', request.url);
 	fs.readFile(filePath, (error, file) => {
@@ -45,7 +42,7 @@ const publicHandler = (request, response) => {
 	});
 };
 
-// Error Handler
+
 const errorHandler= (request, response) => {
 	response.writeHead(404);
 	return response.end('Page Not Found!');
