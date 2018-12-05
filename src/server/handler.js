@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const getData = require('../queries/getData');
 
 const errorHandler = (request, response) => {
   response.writeHead(404);
@@ -47,8 +48,20 @@ const publicHandler = (request, response) => {
 };
 
 
+const getCoursesHandler = (request, response) => {
+  getData.getCourses((error, result) => {
+    if (error) {
+      errorHandler(request, response);
+    } else {
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify(result));
+    }
+  });
+};
+
 module.exports = {
   homeHandler,
   publicHandler,
   errorHandler,
+  getCoursesHandler,
 };
