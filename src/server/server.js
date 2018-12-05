@@ -6,5 +6,6 @@ const PORT = process.env.PORT || 8001;
 
 const server = http.createServer(router);
 server.listen(PORT, () => {
-	console.log(` the server up and running on port ${PORT}!`);
+  // eslint-disable-next-line no-console
+  console.log(` the server up and running on port ${PORT}!`);
 });
