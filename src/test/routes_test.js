@@ -39,7 +39,7 @@ test('Public routes testing', (t) => {
       throw err;
     } else {
       console.log(res.text);
-      const acctual = (res.text.includes('color: red;')) ? true : false;
+      const acctual = (res.text.includes('width: 100%;')) ? true : false;
       const expected = true;
       t.equal(acctual, expected, 'Should return true');
       t.end();
@@ -48,7 +48,7 @@ test('Public routes testing', (t) => {
 });
 
 
-test('Public routes testing', (t) => {
+test('Error routes testing', (t) => {
   supertest(router)
   .get('/css/styles.c')
   .expect('Content-Type', /html/)
@@ -58,7 +58,7 @@ test('Public routes testing', (t) => {
       throw err;
     } else {
       console.log(res.text);
-      const acctual = (res.text.includes('<h1>Page Not Found!</h1>')) ? true : false;
+      const acctual = (res.text.includes('Not'));
       const expected = true;
       t.equal(acctual, expected, 'Should return true');
       t.end();
