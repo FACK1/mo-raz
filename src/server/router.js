@@ -8,6 +8,8 @@ const router = (request, response) => {
     handler.publicHandler(request, response);
   } else if (request.url === '/courses') {
     handler.getCoursesHandler(request, response);
+  } else if (request.url.includes('/students?course_id=')) {
+    handler.getStudentsHandler(request, response);
   } else {
     handler.errorHandler(request, response);
   }

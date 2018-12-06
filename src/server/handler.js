@@ -1,10 +1,12 @@
 const fs = require('fs');
 const path = require('path');
+const querystring = require('querystring');
+const url = require('url');
 const getData = require('../queries/getData');
 
 const errorHandler = (request, response) => {
-  response.writeHead(404, {'Content-Type': 'text/html'});
-  return response.end('<h1>Page Not Found!</h1>');
+  response.writeHead(404, { 'Content-Type': 'text/html' });
+  response.end('<h1>Page Not Found!</h1>');
 };
 
 const homeHandler = (request, response) => {
@@ -59,9 +61,24 @@ const getCoursesHandler = (request, response) => {
   });
 };
 
+const getStudentsHandler = (request, response) => {
+  const { query } = url.parse(request.url);
+  const parsedQuery = querystring.parse(query);
+  getData.getStudents(parsedQuery.course_id, (error, result) => {
+    if (error) {
+      errorHandler(request, response);
+    } else {
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify(result));
+    }
+  });
+};
+
+
 module.exports = {
   homeHandler,
   publicHandler,
   errorHandler,
   getCoursesHandler,
+  getStudentsHandler,
 };
