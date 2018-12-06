@@ -15,7 +15,7 @@ const getStudents = (courseId, cb) => {
   const getStudentsQuery = 'SELECT s.id, s.name FROM students s INNER JOIN courses c ON s.course_id = c.id WHERE c.id = $1';
   dbConnection.query(getStudentsQuery, [courseId], (error, result) => {
     if (error) {
-      cb(false);
+      cb(true);
     } else {
       cb(null, result.rows);
     }
