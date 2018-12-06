@@ -62,7 +62,7 @@
  ## CI Test
 
  ## Team Members:
-    - [Mohammad Al-Sharif](https://github.com/mhmdtshref)
-    - [Razan Tayyem](https://github.com/razantayyem)
+    - Mohammad Al-Sharif
+    - Razan Tayyem
 
 
