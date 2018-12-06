@@ -3,8 +3,8 @@ const path = require('path');
 const getData = require('../queries/getData');
 
 const errorHandler = (request, response) => {
-  response.writeHead(404);
-  return response.end('Page Not Found!');
+  response.writeHead(404, {'Content-Type': 'text/html'});
+  return response.end('<h1>Page Not Found!</h1>');
 };
 
 const homeHandler = (request, response) => {
