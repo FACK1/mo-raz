@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const url = require('url');
 require('dotenv').config();
 
 const { DB_URL } = process.env;
@@ -6,8 +7,21 @@ const { DB_URL } = process.env;
 if (!DB_URL) {
   throw Error('No Database URL');
 }
-const option = {
-  connectionString: DB_URL,
+
+
+const params = url.parse(DB_URL);
+const [username , password]= params.auth.split(':');
+
+
+const options = {
+ host: params.hostname,
+ port:params.port,
+ database: params.pathname.split('/')[1],
+ max: process.env.DB_MAX_CONNECTIONS || 2,
+ user: username,
+ password: password
 };
 
-module.exports = new Pool(option);
+options.ssl = options.host !== 'localhost';
+
+module.exports = new Pool(options);
