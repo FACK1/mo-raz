@@ -12,56 +12,56 @@ test('Tape working', (t) => {
 
 test('Home page testing', (t) => {
   supertest(router)
-  .get('/')
-  .expect('Content-Type', /html/)
-  .expect(200)
-  .end((err, res) => {
-    if(err){
-      throw err;
-    } else {
-      console.log(res.text);
-      const acctual = (res.text.includes('<link rel="stylesheet" href="css/styles.css" type="text/css">')) ? true : false;
-      const expected = true;
-      t.equal(acctual, expected, 'Should return true');
-      t.end();
-    }
-  })
+    .get('/')
+    .expect('Content-Type', /html/)
+    .expect(200)
+    .end((err, res) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log(res.text);
+        const acctual = !!(res.text.includes('<link rel="stylesheet" href="css/styles.css" type="text/css">'));
+        const expected = true;
+        t.equal(acctual, expected, 'Should return true');
+        t.end();
+      }
+    });
 });
 
 
 test('Public routes testing', (t) => {
   supertest(router)
-  .get('/css/styles.css')
-  .expect('Content-Type', /css/)
-  .expect(200)
-  .end((err, res) => {
-    if(err){
-      throw err;
-    } else {
-      console.log(res.text);
-      const acctual = (res.text.includes('width: 100%;')) ? true : false;
-      const expected = true;
-      t.equal(acctual, expected, 'Should return true');
-      t.end();
-    }
-  })
+    .get('/css/resets.css')
+    .expect('Content-Type', /css/)
+    .expect(200)
+    .end((err, res) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log(res.text);
+        const acctual = !!(res.text.includes('aside, details, figcaption, figure,'));
+        const expected = true;
+        t.equal(acctual, expected, 'Should return true');
+        t.end();
+      }
+    });
 });
 
 
 test('Error routes testing', (t) => {
   supertest(router)
-  .get('/css/styles.c')
-  .expect('Content-Type', /html/)
-  .expect(404)
-  .end((err, res) => {
-    if(err){
-      throw err;
-    } else {
-      console.log(res.text);
-      const acctual = (res.text.includes('Not'));
-      const expected = true;
-      t.equal(acctual, expected, 'Should return true');
-      t.end();
-    }
-  })
+    .get('/css/styles.c')
+    .expect('Content-Type', /html/)
+    .expect(404)
+    .end((err, res) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log(res.text);
+        const acctual = (res.text.includes('Not'));
+        const expected = true;
+        t.equal(acctual, expected, 'Should return true');
+        t.end();
+      }
+    });
 });
