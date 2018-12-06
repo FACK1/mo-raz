@@ -19,7 +19,7 @@ test('Home page testing', (t) => {
       if (err) {
         throw err;
       } else {
-        const acctual = !!(res.text.includes('<link rel="stylesheet" href="css/styles.css" type="text/css">'));
+        const acctual = res.text.includes('<link rel="stylesheet" href="css/styles.css" type="text/css">');
         const expected = true;
         t.equal(acctual, expected, 'Should return true');
         t.end();
@@ -37,7 +37,7 @@ test('Public routes testing', (t) => {
       if (err) {
         throw err;
       } else {
-        const acctual = !!(res.text.includes('aside, details, figcaption, figure,'));
+        const acctual = res.text.includes('aside, details, figcaption, figure,');
         const expected = true;
         t.equal(acctual, expected, 'Should return true');
         t.end();
@@ -55,7 +55,7 @@ test('Error routes testing', (t) => {
       if (err) {
         throw err;
       } else {
-        const acctual = (res.text.includes('Not'));
+        const acctual = res.text.includes('Not');
         const expected = true;
         t.equal(acctual, expected, 'Should return true');
         t.end();
