@@ -54,8 +54,8 @@
  - Put in terminal **npm install**.
  - Then put in terminal  **npm run nodemon** to run the server.
  - Open your browser and put in terminal **localhost:8001**.
-
- ## CI Test:
+ 
+ ## CI Test
 
  ## Team Members:
     - [Mohammad Al-Sharif](https://github.com/mhmdtshref)
