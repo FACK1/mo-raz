@@ -1,5 +1,8 @@
 # FAC Revs
 
+**The Link of website**: [FAC Revs](https://facrevs.herokuapp.com/)
+
+
 ## User Stories
 *As a FACK1 student...*
 > I can leave a review/feedback about the course
@@ -41,4 +44,25 @@
 - gitignore
 - config.env
 ```
+
+
+
+
+## Schema database
+![screenshot from 2018-12-05 19-11-49](https://user-images.githubusercontent.com/41734542/49532305-e25fae80-f8c4-11e8-9352-f33de2682110.png)
+
+
+ ## How to run our site on your machine?
+ - Clone this repo(https://github.com/FACK1/mo-raz.git).
+ - Open your command line.
+ - Put in terminal **npm install**.
+ - Then put in terminal  **npm run nodemon** to run the server.
+ - Open your browser and put in terminal **localhost:8001**.
+ 
+ ## CI Test
+
+ ## Team Members:
+    - Mohammad Al-Sharif
+    - Razan Tayyem
+
 
